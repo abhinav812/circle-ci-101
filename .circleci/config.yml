@@ -24,7 +24,7 @@ jobs:
           key: sbt-cache
       - run:
           name: Compile circleci101 dist package
-          command: cat /dev/null | sbt clean update dist
+          command: cat /dev/null | sbt clean update package
       - store_artifacts:
           path: target/universal/circleci.zip
           destination: circleci101
