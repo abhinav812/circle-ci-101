@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build_deploy:
     working_directory: ~/circleci101
     docker:
       - image: codestar/circleci-scala-sbt-git:scala-2.12.8-sbt-1.1.6
@@ -22,9 +22,9 @@ jobs:
             - "~/.ivy2/cache"
             - "~/.sbt"
             - "~/.m2"
-#      - deploy:
-#          command: |
-#            mv target/universal/circleci101.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
+      - deploy:
+          command: |
+            mv target/universal/circleci101.zip $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD
 #            aws s3 cp $CIRCLE_ARTIFACTS/$ARTIFACT_BUILD s3://devops.datapunks.org/builds/samplescala/ --metadata {\"git_sha1\":\"$CIRCLE_SHA1\"}
 workflows:
   version: 2
